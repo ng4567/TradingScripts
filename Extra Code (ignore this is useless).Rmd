@@ -1,0 +1,54 @@
+---
+title: "DFi Labs Extra Code"
+author: "Nikhil Gopal"
+date: "1/30/2022"
+output: pdf_document
+---
+
+Fitting a Linear SVM model:
+
+```{r}
+svm1 <- train(category ~ qav + Open + volatility, 
+                data = training, 
+                method="svmLinear")
+
+svm1
+```
+
+Splitting for 10-fold cross validation and fitting a Linear SVM algorithm:
+
+```{r}
+# Set up Repeated k-fold Cross Validation
+train_control <- trainControl(method="cv", number=10)
+
+# Fit the model 
+svm2 <- train(category ~ qav + Open + volatility, data = data, method = "svmLinear", trControl = train_control)
+#View the model
+svm2
+
+```
+
+
+Make predictions using the SVM model:
+
+```{r}
+data$predicted_category <- predict(svm2, newdata = data)
+
+#Calculate the number of correct predictions
+#make a binary column to represent if the prediction was correct.
+data$predicted_correct <- ifelse(data$category == data$predicted_category, 1, 0)
+
+num_correct_predictions <- sum(data$predicted_correct)
+prop_predicted_correctly <- num_correct_predictions/total_observations
+
+test$predicted_category <- predict(svm2, newdata = test)
+
+#Calculate the number of correct predictions
+#make a binary column to represent if the prediction was correct.
+test$predicted_correct <- ifelse(test$category == test$predicted_category, 1, 0)
+
+num_correct_predictions <- sum(test$predicted_correct)
+prop_predicted_correctly <- num_correct_predictions/total_observations
+
+prop_predicted_correctly
+```
