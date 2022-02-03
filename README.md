@@ -4,7 +4,7 @@ This repo contains some trading models I made to predict Bitcoin prices during h
 
 This repo includes 3 files: 
 
-* [.RMD file](https://github.com/ng4567/TradingScripts/blob/master/DFi-labs-final-version.Rmd) which contains the R code used to make the algorithm
-* [.html file](https://github.com/ng4567/TradingScripts/blob/master/DFi-labs-final-version.html) Knitted version of the .RMD, can be used to see results and graphs without having to run code
-* [.ipynb file](https://github.com/ng4567/TradingScripts/blob/master/DFi-labs-final-version.ipynb) Jupyter notebook for those who prefer to run code in that envrionment
+* [.RMD script file](https://github.com/ng4567/TradingScripts/blob/master/Script.Rmd) which contains the R code used to make the algorithm
+* [.html file](https://github.com/ng4567/TradingScripts/blob/master/Knitted%20Version.html) Knitted version of the .RMD, can be used to see results and graphs without having to run code
+* [.ipynb file](https://github.com/ng4567/TradingScripts/blob/master/Jupyter%20NB.ipynb) Jupyter notebook for those who prefer to run code in that envrionment
 
